@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_program_name.c                            :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmerma-b <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jmerma-b <jmerma-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/21 00:36:47 by jmerma-b          #+#    #+#             */
-/*   Updated: 2024/11/21 00:36:50 by jmerma-b         ###   ########.fr       */
+/*   Created: 2024/12/10 13:32:54 by jmerma-b          #+#    #+#             */
+/*   Updated: 2024/12/13 17:25:52 by jmerma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
 
-int main(int argc, char* argv[])
+#include "ftlib.h"
+
+void bzero(void *s, size_t n)
 {
-    int i = 0;
-    while (argv[0][i] != '\0')
+    size_t j = 0;
+
+    unsigned char *susdest = (unsigned char *) s;
+    while (j < n)
     {
-        argc++;
-        i++;
+        susdest[j] = 0;
+        j++;
     }
-    write(1, argv[0], i);
-    write(1, "\n", 1);
-    return (0);
 }

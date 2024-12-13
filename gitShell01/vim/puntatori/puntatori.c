@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <stdio.h>
 
 void	ft_ft(int *nbr)
 {
@@ -20,12 +21,12 @@ void	ft_ft(int *nbr)
 int main(void)
 {
 	int nbr= 35;
-	
-	write(1, &nbr, 1);
+	int *p = &nbr;
+	printf("%d", *p);
 	write(1, "\n", 1);
 
-	ft_ft(&nbr);
-	write (1, &nbr, 1);
+	ft_ft(p);
+	printf("%d", *p);
 
 	return 0;
 }	

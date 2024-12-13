@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_program_name.c                            :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmerma-b <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jmerma-b <jmerma-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/21 00:36:47 by jmerma-b          #+#    #+#             */
-/*   Updated: 2024/11/21 00:36:50 by jmerma-b         ###   ########.fr       */
+/*   Created: 2024/12/13 14:07:40 by jmerma-b          #+#    #+#             */
+/*   Updated: 2024/12/13 14:14:13 by jmerma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
 
-int main(int argc, char* argv[])
+#include "libft.h"
+
+char *strchr(const char *str, int c)
 {
     int i = 0;
-    while (argv[0][i] != '\0')
+    while (str[i] != '\0')
     {
-        argc++;
+        if (str[i] == c)
+            return (str + i);
         i++;
     }
-    write(1, argv[0], i);
-    write(1, "\n", 1);
-    return (0);
+    return (NULL);
 }

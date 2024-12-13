@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_program_name.c                            :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmerma-b <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jmerma-b <jmerma-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/21 00:36:47 by jmerma-b          #+#    #+#             */
-/*   Updated: 2024/11/21 00:36:50 by jmerma-b         ###   ########.fr       */
+/*   Created: 2024/12/13 14:06:07 by jmerma-b          #+#    #+#             */
+/*   Updated: 2024/12/13 14:07:00 by jmerma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
 
-int main(int argc, char* argv[])
+#include "libft.h"
+
+int	ft_tolower(int c)
 {
-    int i = 0;
-    while (argv[0][i] != '\0')
-    {
-        argc++;
-        i++;
-    }
-    write(1, argv[0], i);
-    write(1, "\n", 1);
-    return (0);
+	if (c >= 'A' && c <= 'Z')
+		return (c + 32);
+	else
+		return (c);
 }

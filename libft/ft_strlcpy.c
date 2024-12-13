@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_program_name.c                            :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmerma-b <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jmerma-b <jmerma-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/21 00:36:47 by jmerma-b          #+#    #+#             */
-/*   Updated: 2024/11/21 00:36:50 by jmerma-b         ###   ########.fr       */
+/*   Created: 2024/12/10 14:34:55 by jmerma-b          #+#    #+#             */
+/*   Updated: 2024/12/10 15:21:11 by jmerma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
 
-int main(int argc, char* argv[])
+//#include "lbfit.h"
+#include <stdio.h>
+
+size_t ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-    int i = 0;
-    while (argv[0][i] != '\0')
+    size_t i = 0;
+    while (i < dstsize - 1 && src[i] != '\0')
     {
-        argc++;
+        dst[i] = src[i];
         i++;
     }
-    write(1, argv[0], i);
-    write(1, "\n", 1);
-    return (0);
+    dst[i] = '\0';
+    while (src[i] != '\0')
+        i++;
+    return (i);
 }

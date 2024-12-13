@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_program_name.c                            :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmerma-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/21 00:36:47 by jmerma-b          #+#    #+#             */
-/*   Updated: 2024/11/21 00:36:50 by jmerma-b         ###   ########.fr       */
+/*   Created: 2024/12/10 11:09:31 by jmerma-b          #+#    #+#             */
+/*   Updated: 2024/12/10 11:39:57 by jmerma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
 
-int main(int argc, char* argv[])
+#include "libft.h"
+
+int ft_isalpha(char c)
 {
-    int i = 0;
-    while (argv[0][i] != '\0')
-    {
-        argc++;
-        i++;
-    }
-    write(1, argv[0], i);
-    write(1, "\n", 1);
-    return (0);
+	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
+		return (1);
+	return (0);
 }
