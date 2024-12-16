@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmerma-b <jmerma-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/10 11:55:41 by jmerma-b          #+#    #+#             */
-/*   Updated: 2024/12/16 11:26:23 by jmerma-b         ###   ########.fr       */
+/*   Created: 2024/12/16 17:23:17 by jmerma-b          #+#    #+#             */
+/*   Updated: 2024/12/16 17:26:39 by jmerma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include "libft.h"
+#include <unistd.h>
 
-int	ft_strlen(char *sium)
+void ft_putchar_fd(char c, int fd)
 {
-	int i;
-
-    i = 0;
-	while (sium[i] != '\0')
-		i++;
-	return (i);
+    write(fd, &c, 1);
 }

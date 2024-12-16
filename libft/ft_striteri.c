@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmerma-b <jmerma-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/10 11:55:41 by jmerma-b          #+#    #+#             */
-/*   Updated: 2024/12/16 11:26:23 by jmerma-b         ###   ########.fr       */
+/*   Created: 2024/12/16 17:14:24 by jmerma-b          #+#    #+#             */
+/*   Updated: 2024/12/16 17:21:00 by jmerma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "libft.h"
+#include "libft.h"
 
-int	ft_strlen(char *sium)
+void ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	int i;
-
-    i = 0;
-	while (sium[i] != '\0')
-		i++;
-	return (i);
+    if (s == NULL)
+        return ;
+    int i = 0;
+    while (s[i] != '\0')
+    {
+        f(i,&s[i]);
+        i++;
+    }
 }
