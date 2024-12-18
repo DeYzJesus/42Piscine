@@ -6,17 +6,19 @@
 /*   By: jmerma-b <jmerma-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 17:37:02 by jmerma-b          #+#    #+#             */
-/*   Updated: 2024/12/13 17:48:47 by jmerma-b         ###   ########.fr       */
+/*   Updated: 2024/12/18 10:08:07 by jmerma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void *calloc(size_t num, size_t size)
+void	*ft_calloc(size_t num, size_t size)
 {
-    void *sium = (void *)malloc(size * num);
-    if (sium == NULL)
-        return (NULL);
-    ft_memset(sium, 0, size * num);
-    return (sium);
+	void	*sium;
+
+	sium = (void *)malloc(size * num);
+	if (sium == NULL)
+		return (NULL);
+	ft_memset(sium, 0, size * num);
+	return (sium);
 }

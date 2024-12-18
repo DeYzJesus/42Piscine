@@ -6,15 +6,15 @@
 /*   By: jmerma-b <jmerma-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 11:43:26 by jmerma-b          #+#    #+#             */
-/*   Updated: 2024/12/10 11:45:58 by jmerma-b         ###   ########.fr       */
+/*   Updated: 2024/12/17 10:57:21 by jmerma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_isdigit (char c)
+int	ft_isdigit(char c)
 {
-    if (c >= '0' && c <= '9')
-        return (1);
-    return (0);
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
 }

@@ -6,29 +6,30 @@
 /*   By: jmerma-b <jmerma-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 17:36:52 by jmerma-b          #+#    #+#             */
-/*   Updated: 2024/12/16 18:02:49 by jmerma-b         ###   ########.fr       */
+/*   Updated: 2024/12/17 10:52:39 by jmerma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void ft_putnbr_fd(int n, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
-    char c;
-    if(n == -2147483648)
-    {
-        write(fd, "-2147483648", 11);
-        return ;
-    }
-    else if(n < 0)
-    {
-        write(fd, "-", 1);
-        n = -n;
-    }
-    if (n > 9)
-    {
-        ft_putnbr_fd((n/10),fd);
-    }
-    c = n % 10 + '0';
-    write(fd, &c, 1);   
+	char	c;
+
+	if (n == -2147483648)
+	{
+		write(fd, "-2147483648", 11);
+		return ;
+	}
+	else if (n < 0)
+	{
+		write(fd, "-", 1);
+		n = -n;
+	}
+	if (n > 9)
+	{
+		ft_putnbr_fd((n / 10), fd);
+	}
+	c = n % 10 + '0';
+	write(fd, &c, 1);
 }

@@ -6,7 +6,7 @@
 /*   By: jmerma-b <jmerma-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 22:27:18 by jmerma-b          #+#    #+#             */
-/*   Updated: 2024/12/14 22:39:32 by jmerma-b         ###   ########.fr       */
+/*   Updated: 2024/12/17 10:50:07 by jmerma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,34 +14,29 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t i = 0;
-	size_t y = 0;
-	size_t j = 0;
+	size_t	i;
+	size_t	j;
+	char	*dest;
 
-	while (s1[i] != '\0')
-		i++;
-	while (s2[y] != '\0')
-	{
-		y++;
-		i++;
-	}
-	char *dest = (char *)malloc((i + 1) * sizeof(char));
-	if(!dest)
-        return (NULL);
-    y = 0;
+	i = ft_strlen(s1) + ft_strlen(s2);
+	j = 0;
+	dest = (char *)malloc((i + 1) * sizeof(char));
+	if (!dest)
+		return (NULL);
+	i = 0;
 	while (s1[j] != '\0')
 	{
-		dest[y] = s1[j];
-		y++;
+		dest[i] = s1[j];
+		i++;
 		j++;
 	}
 	j = 0;
 	while (s2[j] != '\0')
 	{
-		dest[y] = s2[j];
-		y++;
+		dest[i] = s2[j];
+		i++;
 		j++;
 	}
-    dest[y] = '\0';
-    return (dest);
+	dest[i] = '\0';
+	return (dest);
 }
