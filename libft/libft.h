@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT.H
-# define LIBFT.H
+#ifndef LIBFT_H
+# define LIBFT_H
 
 int		ft_atoi(const char *str);
 void	ft_bzero(void *s, size_t n);
