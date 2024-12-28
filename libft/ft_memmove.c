@@ -6,7 +6,7 @@
 /*   By: jmerma-b <jmerma-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 17:45:41 by jmerma-b          #+#    #+#             */
-/*   Updated: 2024/12/18 10:07:36 by jmerma-b         ###   ########.fr       */
+/*   Updated: 2024/12/28 13:32:34 by jmerma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 
 	susdes = (unsigned char *)dest;
 	i = 0;
-	if (susdes > sussrc || susdes >= sussrc + n)
+	if (susdes < sussrc || susdes >= sussrc + n)
 	{
 		while (i < n)
 		{

@@ -6,11 +6,11 @@
 /*   By: jmerma-b <jmerma-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 13:32:54 by jmerma-b          #+#    #+#             */
-/*   Updated: 2024/12/18 10:08:26 by jmerma-b         ###   ########.fr       */
+/*   Updated: 2024/12/28 11:28:14 by jmerma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ftlib.h"
+#include "libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {

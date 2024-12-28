@@ -6,7 +6,7 @@
 /*   By: jmerma-b <jmerma-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 00:35:23 by jmerma-b          #+#    #+#             */
-/*   Updated: 2024/12/17 11:29:14 by jmerma-b         ###   ########.fr       */
+/*   Updated: 2024/12/28 11:52:34 by jmerma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	start = 0;
 	while (s1[start] && ft_strchr(set, s1[start]))
 		start++;
-	end = ft_strlen(s1);
+	end = ft_strlen((char *)s1);
 	while (end > start && ft_strchr(set, s1[end - 1]))
 		end--;
 	trimmed = (char *)malloc((end - start + 1) * sizeof(char));

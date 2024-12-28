@@ -6,7 +6,7 @@
 /*   By: jmerma-b <jmerma-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 17:00:39 by jmerma-b          #+#    #+#             */
-/*   Updated: 2024/12/17 11:09:48 by jmerma-b         ###   ########.fr       */
+/*   Updated: 2024/12/28 11:55:47 by jmerma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	int		i;
 	char	*dest;
 
-	i = ft_strlen(s);
+	i = ft_strlen((char *)s);
 	dest = (char *)malloc((i + 1) * sizeof(char));
 	i = 0;
 	while (s[i] != '\0')

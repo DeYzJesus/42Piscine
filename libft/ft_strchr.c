@@ -6,7 +6,7 @@
 /*   By: jmerma-b <jmerma-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 14:07:40 by jmerma-b          #+#    #+#             */
-/*   Updated: 2024/12/18 10:07:14 by jmerma-b         ###   ########.fr       */
+/*   Updated: 2024/12/28 13:36:21 by jmerma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,11 @@ char	*ft_strchr(const char *str, int c)
 	i = 0;
 	while (str[i] != '\0')
 	{
-		if (str[i] == c)
-			return (str + i);
+		if (str[i] == (char)c)
+			return ((char *)str + i);
 		i++;
 	}
-	return (NULL);
+	if (str[i] == (char)c)
+		return ((char *)str + i);
+	return (0);
 }

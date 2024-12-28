@@ -6,7 +6,7 @@
 /*   By: jmerma-b <jmerma-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 11:55:29 by jmerma-b          #+#    #+#             */
-/*   Updated: 2024/12/20 03:26:53 by jmerma-b         ###   ########.fr       */
+/*   Updated: 2024/12/28 11:54:54 by jmerma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	ft_freen(char **str, int end)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	while (i < end)
@@ -78,12 +78,10 @@ char	**ft_split(char const *s, char c)
 {
 	int			words;
 	char		**dest;
-	size_t		i;
 
 	if (s == NULL)
 		return (NULL);
 	words = ft_countwords(s, c);
-	i = 0;
 	dest = malloc((words + 1) * sizeof(char *));
 	if (!dest)
 		return (NULL);

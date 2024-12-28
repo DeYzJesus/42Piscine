@@ -6,12 +6,15 @@
 /*   By: jmerma-b <jmerma-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 18:33:27 by jmerma-b          #+#    #+#             */
-/*   Updated: 2024/12/17 11:04:23 by jmerma-b         ###   ########.fr       */
+/*   Updated: 2024/12/28 11:56:20 by jmerma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+# include <stddef.h>
+# include <stdlib.h>
+# include <unistd.h>
 
 int		ft_atoi(const char *str);
 void	ft_bzero(void *s, size_t n);
