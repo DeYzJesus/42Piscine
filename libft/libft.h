@@ -6,7 +6,7 @@
 /*   By: jmerma-b <jmerma-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 18:33:27 by jmerma-b          #+#    #+#             */
-/*   Updated: 2024/12/28 11:56:20 by jmerma-b         ###   ########.fr       */
+/*   Updated: 2025/01/07 20:23:52 by jmerma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t num, size_t size);
 int		ft_isalnum(char c);
 int		ft_isalpha(char c);
-int		ft_isascii(char c);
+int		ft_isascii(int c);
 int		ft_isdigit(char c);
 int		ft_isprint(int c);
 char	*ft_itoa(int n);
@@ -41,7 +41,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 char	*ft_strjoin(char const *s1, char const *s2);
 size_t	ft_strlcat(char *dest, const char *src, size_t dstsize);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
-int		ft_strlen(char *sium);
+size_t	ft_strlen(const char *sium);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);

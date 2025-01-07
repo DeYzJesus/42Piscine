@@ -6,35 +6,45 @@
 /*   By: jmerma-b <jmerma-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 00:35:23 by jmerma-b          #+#    #+#             */
-/*   Updated: 2024/12/28 11:52:34 by jmerma-b         ###   ########.fr       */
+/*   Updated: 2025/01/07 20:34:44 by jmerma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s1, char const *set)
+static int	check(char s1, const char *set)
+{
+	while (*set)
+	{
+		if (s1 == *set)
+			return (1);
+		set++;
+	}
+	return (0);
+}
+
+char	*ft_strtrim(const char *s1, const char *set)
 {
 	size_t	start;
 	size_t	end;
 	size_t	i;
-	char	*trimmed;
+	char	*dest;
 
+	if (!s1 || !set)
+		return (NULL);
+	i = 0;
 	start = 0;
-	while (s1[start] && ft_strchr(set, s1[start]))
+	while (s1[i] && check(s1[start], set))
 		start++;
-	end = ft_strlen((char *)s1);
-	while (end > start && ft_strchr(set, s1[end - 1]))
+	end = ft_strlen(s1);
+	while (end > start && check(s1[end - 1], set))
 		end--;
-	trimmed = (char *)malloc((end - start + 1) * sizeof(char));
-	if (!trimmed)
+	dest = malloc(sizeof(char) * (end - start + 1));
+	if (!dest)
 		return (NULL);
 	i = 0;
 	while (start < end)
-	{
-		trimmed[i] = s1[start];
-		start++;
-		i++;
-	}
-	trimmed[i] = '\0';
-	return (trimmed);
+		dest[i++] = s1[start++];
+	dest[i] = '\0';
+	return (dest);
 }

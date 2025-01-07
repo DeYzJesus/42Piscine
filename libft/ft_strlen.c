@@ -6,15 +6,15 @@
 /*   By: jmerma-b <jmerma-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 11:55:41 by jmerma-b          #+#    #+#             */
-/*   Updated: 2024/12/17 10:50:53 by jmerma-b         ###   ########.fr       */
+/*   Updated: 2025/01/07 20:17:46 by jmerma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlen(char *sium)
+size_t	ft_strlen(const char *sium)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (sium[i] != '\0')
