@@ -6,7 +6,7 @@
 #    By: jmerma-b <jmerma-b@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/28 11:24:28 by jmerma-b          #+#    #+#              #
-#    Updated: 2025/01/06 18:24:35 by jmerma-b         ###   ########.fr        #
+#    Updated: 2025/01/09 15:12:20 by jmerma-b         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,11 +24,18 @@ SOURCES = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
     ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c \
     ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
 
+BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
+	ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
 
 OBJECTS = $(SOURCES:.c=.o)
 
+BONUS_OBJECTS = $(BONUS:.c=.o)
+
 $(NAME): $(OBJECTS)
 	$(AR) $@ $^
+
+bonus: $(BONUS_OBJECTS)
+	$(AR) $(NAME) $^    
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -36,7 +43,7 @@ $(NAME): $(OBJECTS)
 all: $(NAME)
 
 clean:
-	$(RM) $(OBJECTS)
+	$(RM) $(OBJECTS) $(BONUS_OBJECTS)
 
 fclean: clean
 	$(RM) $(NAME) 
