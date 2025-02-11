@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmerma-b <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jmerma-b <jmerma-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 01:12:29 by jmerma-b          #+#    #+#             */
-/*   Updated: 2025/01/13 16:54:56 by jmerma-b         ###   ########.fr       */
+/*   Updated: 2025/02/09 13:50:21 by jmerma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
+
 void	ft_putstr(char *str, int *count)
 {
 	int	i;
@@ -20,4 +21,3 @@ void	ft_putstr(char *str, int *count)
 		write(1, &str[i], 1);
 	*count += i;
 }
-

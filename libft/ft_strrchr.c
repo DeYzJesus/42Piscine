@@ -6,12 +6,11 @@
 /*   By: jmerma-b <jmerma-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 14:14:51 by jmerma-b          #+#    #+#             */
-/*   Updated: 2025/01/06 18:23:43 by jmerma-b         ###   ########.fr       */
+/*   Updated: 2025/01/27 16:39:25 by jmerma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
 char	*ft_strrchr(const char *str, int c)
 {
 	int	i;

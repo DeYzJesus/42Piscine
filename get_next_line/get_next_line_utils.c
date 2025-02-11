@@ -6,7 +6,7 @@
 /*   By: jmerma-b <jmerma-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:28:53 by jmerma-b          #+#    #+#             */
-/*   Updated: 2025/01/20 15:54:09 by jmerma-b         ###   ########.fr       */
+/*   Updated: 2025/01/23 00:25:03 by jmerma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ char    *ft_strjoin(char *s1, char const *s2)
         j++;
     }
     if (s2[j] == '\n')
-        dest[i+j++] = '\n';
+        dest[i + j++] = '\n';
     dest[i+j] = '\0';
     free(s1);
     return (dest);
@@ -77,20 +77,43 @@ int ft_strlen(const char *src, int i)
         return (j);
     }
 }
+char	*ft_strdup(const char *s)
+{
+	size_t	j;
+	char	*sus;
+
+	j = 0;
+	while (s[j] != '\0')
+		j++;
+	sus = (char *)malloc((j + 1) * sizeof(char));
+	if (!sus)
+		return (NULL);
+	j = 0;
+	while (s[j] != '\0')
+	{
+		sus[j] = s[j];
+		j++;
+	}
+	sus[j] = '\0';
+	return (sus);
+}
 
 char *ft_update(char *dest)
 {
     int i = 0;
     int j = 0;
-    while (dest[i] != '\n')
+    char *temp = ft_strdup((const char *)dest);
+    while (dest[i] != '\n' && dest[i] != '\0')
         i++;
-    i++;
+    if (dest[i] == '\n')
+        i++;
     while (dest[i] != '\0')
         {
-            dest[j] = dest[i];
+            dest[j] = temp[i];
             i++;
             j++;
         }
     dest[j] = '\0';
+    free(temp);
     return (dest);
 }
