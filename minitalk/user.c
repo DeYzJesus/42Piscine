@@ -25,20 +25,20 @@ int main(int argc, char **argv) {
     }
 
     int server_pid = atoi(argv[1]);
-    char *to_send = ft_strcopy(argv[2]); // Carattere da inviare
+    //char *to_send = ft_strcopy(argv[2]); // Carattere da inviare
 
     int j = 0;
-    while (to_send[j] != '\0')
+    while (argv[2][j] != '\0')
     {
     	for (int i = 7; i >= 0; i--) {
-        	int bit = (to_send[j] >> i) & 1; // Estrai l'i-esimo bit
+        	int bit = (argv[2][j] >> i) & 1; // Estrai l'i-esimo bit
         	
         	if (bit == 0) {
             	kill(server_pid, SIGUSR1); // Invia 0
         	} else {
             	kill(server_pid, SIGUSR2); // Invia 1
         	}
-        	usleep(50); // Attendi un po' per evitare segnali persi
+        	usleep(100); // Attendi un po' per evitare segnali persi
     	}
 	j++;
     }

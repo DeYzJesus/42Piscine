@@ -6,14 +6,13 @@
 /*   By: jmerma-b <jmerma-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 13:53:33 by jmerma-b          #+#    #+#             */
-/*   Updated: 2025/02/09 16:20:19 by jmerma-b         ###   ########.fr       */
+/*   Updated: 2025/03/03 17:10:44 by jmerma-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
-static void	check(va_list args, int *count, int c)
+static void	check(va_list args, int *count, char c)
 {
 	if (c == 'c')
 	{

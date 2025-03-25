@@ -29,6 +29,8 @@ int main() {
     struct sigaction sa;
     sa.sa_handler = handler;
     sigemptyset(&sa.sa_mask);
+    sigaddset(&sa.sa_mask, SIGUSR1);
+    sigaddset(&sa.sa_mask, SIGUSR2); 
     sa.sa_flags = 0;
 
     sigaction(SIGUSR1, &sa, NULL);
