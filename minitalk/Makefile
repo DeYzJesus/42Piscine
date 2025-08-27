@@ -1,35 +1,57 @@
-# Variabili
-CC      = gcc
-CFLAGS  = -Wall -Wextra -Werror
-SRV_SRC = server.c
-USR_SRC = user.c
-SRV_OBJ = $(SRV_SRC:.c=.o)
-USR_OBJ = $(USR_SRC:.c=.o)
-SRV_BIN = server
-USR_BIN = user
+# === Nomi degli eseguibili ===
+NAME_SERVER = server
+NAME_CLIENT = client
 
-# Regola principale
-all: $(SRV_BIN) $(USR_BIN)
+# === Sorgenti ===
+SRCS_SERVER = server.c
+SRCS_CLIENT = client.c
 
-# Compilazione del server
-$(SRV_BIN): $(SRV_OBJ)
-	$(CC) $(CFLAGS) -o $@ $^
+OBJS_SERVER = $(SRCS_SERVER:.c=.o)
+OBJS_CLIENT = $(SRCS_CLIENT:.c=.o)
 
-# Compilazione dell'user
-$(USR_BIN): $(USR_OBJ)
-	$(CC) $(CFLAGS) -o $@ $^
+# === Compilazione ===
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
 
-# Pulizia dei file oggetto
+# === Librerie esterne ===
+LIBFT_DIR = libft
+PRINTF_DIR = ft_printf
+
+LIBFT = $(LIBFT_DIR)/libft.a
+PRINTF = $(PRINTF_DIR)/libftprintf.a  # supponendo si chiami così
+
+# === Comandi ===
+RM = rm -f
+
+# === Obiettivo principale ===
+all: $(LIBFT) $(PRINTF) $(NAME_SERVER) $(NAME_CLIENT)
+
+# === Build delle librerie ===
+$(LIBFT):
+	@$(MAKE) -C $(LIBFT_DIR)
+
+$(PRINTF):
+	@$(MAKE) -C $(PRINTF_DIR)
+
+# === Build degli eseguibili ===
+$(NAME_SERVER): $(OBJS_SERVER)
+	$(CC) $(CFLAGS) $(OBJS_SERVER) $(LIBFT) $(PRINTF) -o $(NAME_SERVER)
+
+$(NAME_CLIENT): $(OBJS_CLIENT)
+	$(CC) $(CFLAGS) $(OBJS_CLIENT) $(LIBFT) $(PRINTF) -o $(NAME_CLIENT)
+
+# === Pulizia ===
 clean:
-	rm -f $(SRV_OBJ) $(USR_OBJ)
+	@$(MAKE) clean -C $(LIBFT_DIR)
+	@$(MAKE) clean -C $(PRINTF_DIR)
+	$(RM) $(OBJS_SERVER) $(OBJS_CLIENT)
 
-# Pulizia completa (inclusi gli eseguibili)
 fclean: clean
-	rm -f $(SRV_BIN) $(USR_BIN)
+	@$(MAKE) fclean -C $(LIBFT_DIR)
+	@$(MAKE) fclean -C $(PRINTF_DIR)
+	$(RM) $(NAME_SERVER) $(NAME_CLIENT)
 
-# Ricostruzione completa
 re: fclean all
 
-# Regole di utilità
 .PHONY: all clean fclean re
 

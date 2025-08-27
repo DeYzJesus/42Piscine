@@ -1,45 +1,47 @@
-#include <signal.h>
-#include <unistd.h>
-#include <stdio.h>
+#include "minitalk.h"
 
-// Variabili globali per accumulare i bit
-int bit_counter = 0;
-char received_char = 0;
+static void	client_sig(int signal, siginfo_t *info, void *context)
+{
+	(void)context;
+	static unsigned int		c;
+	static int				i;
+	static int				pid;
 
-void handler(int sig) {
-    // Converti il segnale in bit (0 per SIGUSR1, 1 per SIGUSR2)
-    int bit = (sig == SIGUSR1) ? 0 : 1;
-    
-    // Aggiungi il bit al carattere
-    received_char = (received_char << 1) | bit;
-    bit_counter++;
-
-    // Dopo 8 bit, stampa il carattere
-    if (bit_counter == 8) {
-        write(STDOUT_FILENO, &received_char, 1); // Stampa senza buffer
-        bit_counter = 0;
-        received_char = 0;
-    }
+	if (pid == 0)
+		pid = info->si_pid;
+	if (signal == SIGUSR1)
+		c = (c << 1) | 1;
+	else if (signal == SIGUSR2)
+		c = c << 1;
+	if (++i == 8)
+	{
+		i = 0;
+		if (!c)
+		{
+			kill(pid, SIGUSR1);
+			pid = 0;
+			ft_printf("\033[0;36m\nMessage: \033[0m\n");
+			return ;
+		}
+		ft_printf("%c", c);
+		c = 0;
+	}
 }
 
-int main() {
-    printf("Server PID: %d\n", getpid());
+int	main(void)
+{
+	struct sigaction	signal;
+	// int					i;
 
-    // Configura i gestori per SIGUSR1 e SIGUSR2
-    struct sigaction sa;
-    sa.sa_handler = handler;
-    sigemptyset(&sa.sa_mask);
-    sigaddset(&sa.sa_mask, SIGUSR1);
-    sigaddset(&sa.sa_mask, SIGUSR2); 
-    sa.sa_flags = 0;
-
-    sigaction(SIGUSR1, &sa, NULL);
-    sigaction(SIGUSR2, &sa, NULL);
-
-    // Loop infinito
-    while (1) {
-        pause(); // Aspetta segnali
-    }
-
-    return 0;
+	ft_printf("\033[0;32mServer started with PID %d\n", getpid());
+	ft_printf("\033[0;36mMessage: \033[0m\n");
+	signal.sa_flags = SA_RESTART | SA_SIGINFO;
+	signal.sa_sigaction = client_sig;
+	if (sigaction(SIGUSR1, &signal, NULL) == -1)
+		ft_printf("\033[0;31mERROR SIGUSR1\033[0m\n");
+	if (sigaction(SIGUSR2, &signal, NULL) == -1)
+		ft_printf("\033[0;31mERROR SIGUSR2\033[0m\n");
+	while (1)
+		pause();
+	return (0);
 }
